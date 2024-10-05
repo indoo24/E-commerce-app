@@ -6,14 +6,15 @@ const String jsonPatch = 'assets/json/';
 abstract class ImageAssets {
   static const String logo = '${imagesPatch}logo.png';
   static const String splash = '${imagesPatch}splash.png';
+
+  // todo : ads image
+  static const String adsImage1 = '${imagesPatch}adsImage.png';
+  static const String adsImage2 = '${imagesPatch}adsImage2.png';
+  static const String adsImage3 = '${imagesPatch}adsImage3.png';
 }
 
 abstract class IconAssets {
   static const String logo = '${iconsPatch}logo.png';
-  static const String icHome = '${iconsPatch}home.png';
-  static const String icUser = '${iconsPatch}user.png';
-  static const String icHeart = '${iconsPatch}heart.png';
-  static const String icCategories = '${iconsPatch}category.png';
 }
 
 abstract class SvgAssets {

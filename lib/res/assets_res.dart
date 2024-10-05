@@ -8,8 +8,7 @@ class AssetsRes {
 
   static const String PLUGIN_NAME = 'ecommerce_app';
   static const String PLUGIN_VERSION = '1.0.0+1';
-  static const String CATEGORY = 'assets/icons/category.png';
-  static const String HEART = 'assets/icons/heart.png';
-  static const String HOME = 'assets/icons/home.png';
-  static const String USER = 'assets/icons/user.png';
+  static const String ADSIMAGE = 'assets/images/adsImage.png';
+  static const String ADSIMAGE2 = 'assets/images/adsImage2.png';
+  static const String ADSIMAGE3 = 'assets/images/adsImage3.png';
 }

@@ -28,6 +28,5 @@ class UserDto extends UserEntity {
     email = json['email'];
     role = json['role'];
   }
-
   String? role;
 }

@@ -1,12 +1,12 @@
 import 'dart:async';
 
-import 'package:ecommerce_app/core/routes_maneger/routes.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/resources/assets_manager.dart';
+import '../../core/routes_manager/routes.dart';
+import '../../core/widgets/shared_pref_utils.dart';
 
 class SplashScreen extends StatefulWidget {
-  static const String routeName = 'splash_screen';
 
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -18,9 +18,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, Routes.signInRoute);
-    });
+    _navigateToNextScreen();
+  }
+
+  void _navigateToNextScreen() async {
+    await Future.delayed(const Duration(seconds: 3));
+    var token = SharedPrefUtils.getDate(key: 'token');
+    if (token != null) {
+      Navigator.pushReplacementNamed(context, Routes.mainLayoutRoute);
+    } else {
+      Navigator.pushReplacementNamed(context, Routes.loginRoute);
+    }
   }
 
   @override

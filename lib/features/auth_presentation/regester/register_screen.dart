@@ -138,13 +138,15 @@ class RegisterScreen extends StatelessWidget {
                   validator: AppValidators.validatePassword,
                   controller: viewModel.confirmPasswordController,
                   hintText: 'Re-enter your password',
-                  borderRadius: BorderRadius.circular(AppSize.s16),
+                  borderRadius: BorderRadius.circular(AppSize.s32),
                 ),
                 SizedBox(height: AppSize.s24),
                 BlocBuilder<RegisterViewModelCubit, RegisterViewModelState>(
                   bloc: viewModel,
                   builder: (context, state) {
-                    return CustomButton(
+                    return SpinnerButton(
+                        width: 10,
+                        actionText: "Register Successfully",
                         textName: AppConstants.signUp,
                         buttonColor: ColorManager.white,
                         textColor: ColorManager.primary,

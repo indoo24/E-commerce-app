@@ -13,11 +13,11 @@ class RegisterViewModelCubit extends Cubit<RegisterViewModelState> {
 
   RegisterViewModelCubit({required this.registerUseCase})
       : super(RegisterViewModelInitial());
-  var nameController = TextEditingController(text: "yousef mohamed kandeel");
-  var emailController = TextEditingController(text: "yaso.kandeel11@gmail.com");
-  var phoneController = TextEditingController(text: "01124868273");
-  var passwordController = TextEditingController(text: "123456");
-  var confirmPasswordController = TextEditingController(text: "123456");
+  var nameController = TextEditingController();
+  var emailController = TextEditingController();
+  var phoneController = TextEditingController();
+  var passwordController = TextEditingController();
+  var confirmPasswordController = TextEditingController();
 
   void register() async {
     emit(RegisterViewModelLoading());

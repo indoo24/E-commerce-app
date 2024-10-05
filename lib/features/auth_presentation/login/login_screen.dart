@@ -76,7 +76,7 @@ class LoginScreen extends StatelessWidget {
                   validator: AppValidators.validateEmail,
                   controller: viewModel.emailController,
                   hintText: 'Enter your email address',
-                  borderRadius: BorderRadius.circular(AppSize.s16),
+                  borderRadius: BorderRadius.circular(AppSize.s32),
                 ),
                 SizedBox(
                   height: AppSize.s16.h,
@@ -96,7 +96,7 @@ class LoginScreen extends StatelessWidget {
                   validator: AppValidators.validatePassword,
                   controller: viewModel.passwordController,
                   hintText: 'Enter your password',
-                  borderRadius: BorderRadius.circular(AppSize.s16),
+                  borderRadius: BorderRadius.circular(AppSize.s32),
                 ),
                 SizedBox(
                   height: AppSize.s16.h,
@@ -105,14 +105,16 @@ class LoginScreen extends StatelessWidget {
                 BlocBuilder<LoginViewModel, LoginStates>(
                   bloc: viewModel,
                   builder: (context, state) {
-                    return CustomButton(
+                    return SpinnerButton(
+                        width: 10,
+                        actionText: 'Login Successfully',
                         textName: AppConstants.login,
                         buttonColor: ColorManager.white,
                         textColor: ColorManager.primary,
                         isLoading: state is LoginLoadingState,
                         isSuccess: state is LoginSuccessState,
                         onPressed: () {
-                          viewModel.login();
+                          viewModel.login(context);
                         });
                   },
                 ),
@@ -125,7 +127,7 @@ class LoginScreen extends StatelessWidget {
                     Text(
                       "Don't have an account? ",
                       style: getBoldStyle(
-                        fontSize: FontSizeManager.s20.sp,
+                        fontSize: FontSizeManager.s16.sp,
                         color: ColorManager.white,
                       ),
                     ),
@@ -136,7 +138,7 @@ class LoginScreen extends StatelessWidget {
                         child: Text(
                           "Create account",
                           style: getBoldStyle(
-                            fontSize: FontSizeManager.s20.sp,
+                            fontSize: FontSizeManager.s16.sp,
                             color: ColorManager.white,
                           ),
                         ))

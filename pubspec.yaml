@@ -43,8 +43,15 @@ dependencies:
   get_it: ^7.7.0
   injectable: ^2.4.4
   dartz: ^0.10.1
-  dio: ^5.6.0
+  dio: ^5.7.0
   connectivity_plus: ^6.0.5
+  flutter_image_slideshow: ^0.1.6
+  badges: ^3.1.2
+  crystal_navigation_bar: ^1.0.0
+  cached_network_image: ^3.4.1
+  shared_preferences: ^2.3.2
+  readmore: ^3.0.0
+  toastification: ^2.2.0
 
 
 dev_dependencies:
@@ -74,12 +81,12 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/icons/
-    - assets/icons/category.png
-    - assets/icons/heart.png
-    - assets/icons/home.png
-    - assets/icons/user.png
     - assets/images/
-    - assets/svg/
+    - assets/images/adsImage.png
+    - assets/images/adsImage2.png
+    - assets/images/adsImage3.png
+
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

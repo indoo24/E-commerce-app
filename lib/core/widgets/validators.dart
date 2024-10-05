@@ -1,50 +1,69 @@
 class AppValidators {
   AppValidators._();
 
+  // Validate Email
   static String? validateEmail(String? value) {
-    RegExp emailRegex = RegExp(r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$');
-    if (value == null || value.isEmpty) {
+    if (value == null || value.trim().isEmpty) {
       return 'Please enter your email';
-    } else if (!emailRegex.hasMatch(value) == false) {
-      return 'Please enter a valid email';
-    } else if (value.trim().isEmpty) {
-      return 'This field is required';
     }
+
+    RegExp emailRegex = RegExp(r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$');
+    if (!emailRegex.hasMatch(value)) {
+      return 'Please enter a valid email';
+    }
+
     return null;
   }
 
+  // Validate Name
   static String? validateName(String? value) {
-    RegExp nameRegex = RegExp(r'^[a-zA-Z\s]+$');
-    if (value == null || value.isEmpty) {
+    if (value == null || value.trim().isEmpty) {
       return 'Please enter your name';
-    } else if (!nameRegex.hasMatch(value)) {
+    }
+
+    RegExp nameRegex = RegExp(r'^[a-zA-Z\s]+$');
+    if (!nameRegex.hasMatch(value)) {
       return 'Please enter a valid name';
     }
+
     return null;
   }
 
+  // Validate Password
   static String? validatePassword(String? value) {
-    RegExp passwordRegex =
-        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
-    if (value == null || value.isEmpty) {
+    if (value == null || value.trim().isEmpty) {
       return 'Please enter your password';
-    } else if (!passwordRegex.hasMatch(value)) {
-      return 'Please enter a valid password';
-    } else if (value.length < 8) {
+    }
+
+    if (value.length < 8) {
       return 'Password must be at least 8 characters';
     }
+
+    RegExp passwordRegex = RegExp(
+      r'^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$&*~]).{8,}$',
+    );
+    if (!passwordRegex.hasMatch(value)) {
+      return 'Please enter a valid password';
+    }
+
     return null;
   }
 
+  // Validate Phone Number
   static String? validatePhoneNumber(String? value) {
-    RegExp phoneNumberRegex = RegExp(r'^[0-9]+$');
-    if (value == null || value.isEmpty) {
+    if (value == null || value.trim().isEmpty) {
       return 'Please enter your phone number';
-    } else if (!phoneNumberRegex.hasMatch(value)) {
-      return 'Please enter a valid phone number';
-    } else if (value.length != 11) {
+    }
+
+    if (value.length != 11) {
       return 'Phone number must be 11 digits';
     }
+
+    RegExp phoneNumberRegex = RegExp(r'^[0-9]{11}$');
+    if (!phoneNumberRegex.hasMatch(value)) {
+      return 'Please enter a valid phone number';
+    }
+
     return null;
   }
 }

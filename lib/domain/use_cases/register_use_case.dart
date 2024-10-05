@@ -8,7 +8,6 @@ import '../failuers.dart';
 @injectable
 class RegisterUseCase {
   AuthRepository authRepository;
-
   RegisterUseCase({required this.authRepository});
 
   Future<Either<Failure, RegisterResponseEntity>> invoke(String name,

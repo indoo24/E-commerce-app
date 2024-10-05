@@ -1,58 +1,58 @@
-import 'package:ecommerce_app/core/resources/assets_manager.dart';
+import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:ecommerce_app/core/resources/color_mananger.dart';
-import 'package:ecommerce_app/features/main_layout/cubit/home_state.dart';
-import 'package:ecommerce_app/features/main_layout/cubit/home_view_model.dart';
+import 'package:ecommerce_app/features/main_layout/cubit/main_layout_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class MainLayout extends StatefulWidget {
-  @override
-  State<MainLayout> createState() => _MainLayoutState();
-}
+import '../../core/resources/values_manager.dart';
+import 'home_tab/widgets/custom_appbar.dart';
 
-class _MainLayoutState extends State<MainLayout> {
-  HomeViewModel viewModel = HomeViewModel();
+class MainLayout extends StatelessWidget {
+  HomeViewModel homeViewModel = HomeViewModel();
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeViewModel, HomeStates>(
-      bloc: viewModel,
+    return BlocBuilder<HomeViewModel, HomeState>(
+      bloc: homeViewModel,
       builder: (context, state) {
         return Scaffold(
-            extendBody: false,
-            body: viewModel.tabs[viewModel.currentIndex],
-            bottomNavigationBar: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(15), topRight: Radius.circular(15)),
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.1,
-                child: BottomNavigationBar(
-                  currentIndex: viewModel.currentIndex,
-                  onTap: (value) => viewModel.changeSelectedIndex(value),
-                  backgroundColor: ColorManager.primary,
-                  type: BottomNavigationBarType.fixed,
-                  selectedItemColor: ColorManager.primary,
-                  unselectedItemColor: ColorManager.white,
-                  showSelectedLabels: false,
-                  showUnselectedLabels: false,
-                  items: const [
-                    BottomNavigationBarItem(
-                        icon: ImageIcon(AssetImage(IconAssets.icHome)),
-                        label: 'Home'),
-                    BottomNavigationBarItem(
-                        icon: ImageIcon(AssetImage(IconAssets.icCategories)),
-                        label: 'Category'),
-                    BottomNavigationBarItem(
-                        icon: ImageIcon(AssetImage(IconAssets.icHeart)),
-                        label: 'Watchlist'),
-                    BottomNavigationBarItem(
-                        icon: ImageIcon(AssetImage(IconAssets.icUser)),
-                        label: 'Profile'),
-                  ],
+            appBar: PreferredSize(
+                preferredSize: Size.fromHeight(AppSize.s96.h),
+                child: const CustomAppbar()),
+            extendBody: true,
+            body: homeViewModel.tabs[homeViewModel.currentIndex],
+            bottomNavigationBar: CrystalNavigationBar(
+              currentIndex: homeViewModel.currentIndex,
+              onTap: homeViewModel.changeIndex,
+              backgroundColor: ColorManager.white.withOpacity(0.3),
+              selectedItemColor: ColorManager.primary,
+              items: [
+                /// Home
+                CrystalNavigationBarItem(
+                  icon: Icons.home,
+                  unselectedIcon: Icons.home_outlined,
+                  selectedColor: ColorManager.primary,
                 ),
-              ),
+                CrystalNavigationBarItem(
+                  icon: Icons.category,
+                  unselectedIcon: Icons.category_outlined,
+                  selectedColor: ColorManager.primary,
+                ),
+                CrystalNavigationBarItem(
+                  icon: Icons.favorite,
+                  unselectedIcon: Icons.favorite_outline,
+                  selectedColor: ColorManager.primary,
+                ),
+                CrystalNavigationBarItem(
+                  icon: Icons.person,
+                  unselectedIcon: Icons.person_outline,
+                  selectedColor: ColorManager.primary,
+                ),
+              ],
             ));
       },
     );
   }
 }
+

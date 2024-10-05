@@ -1,6 +1,7 @@
-import 'package:ecommerce_app/core/resources/font_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'font_manager.dart';
 
 TextStyle getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
   return GoogleFonts.cairo(
@@ -34,3 +35,4 @@ TextStyle getBoldStyle(
     {double fontSize = FontSizeManager.s12, required Color color}) {
   return getTextStyle(fontSize, FontWeightManager.bold, color);
 }
+

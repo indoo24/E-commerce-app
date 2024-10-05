@@ -2,6 +2,7 @@ import 'package:ecommerce_app/core/routes_maneger/routes.dart';
 import 'package:ecommerce_app/features/auth_presentation/login/login_screen.dart';
 import 'package:ecommerce_app/features/auth_presentation/regester/register_screen.dart';
 import 'package:ecommerce_app/features/cart/cubit/cart_screen.dart';
+import 'package:ecommerce_app/features/main_layout/main_layout.dart';
 import 'package:ecommerce_app/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => RegisterScreen());
       case Routes.splashScreenRoute:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
+      case Routes.homeScreenRoute:
+        return MaterialPageRoute(builder: (_) => MainLayout());
       default:
         unDefinedScreen();
     }

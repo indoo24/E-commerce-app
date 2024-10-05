@@ -12,6 +12,3 @@ final getIt = GetIt.instance;
 )
 void configureDependencies() => getIt.init();
 
-// extension on GetIt {
-//   init() {}
-// }
