@@ -4,11 +4,16 @@ plugins {
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
 }
+configurations.all {
+    resolutionStrategy {
+        force 'org.gradle.android.tools:gradle-api:7.3.3'
+    }
+}
 
 android {
     namespace = "com.example.e_commerce"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = ndkVersion = "25.1.8937393"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

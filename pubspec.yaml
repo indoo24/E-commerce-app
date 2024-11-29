@@ -40,18 +40,18 @@ dependencies:
   google_fonts: ^6.2.1
   flutter_bloc: ^8.1.6
   bloc: ^8.1.4
-  get_it: ^7.7.0
-  injectable: ^2.4.4
+  get_it: 8.0.2
+  injectable: ^2.5.0
   dartz: ^0.10.1
   dio: ^5.7.0
-  connectivity_plus: ^6.0.5
+  connectivity_plus: ^6.1.0
   flutter_image_slideshow: ^0.1.6
   badges: ^3.1.2
-  crystal_navigation_bar: ^1.0.0
+  crystal_navigation_bar: ^1.0.2
   cached_network_image: ^3.4.1
-  shared_preferences: ^2.3.2
+  shared_preferences: ^2.3.3
   readmore: ^3.0.0
-  toastification: ^2.2.0
+  toastification: ^2.3.0
 
 
 dev_dependencies:

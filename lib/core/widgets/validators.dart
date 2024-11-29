@@ -40,7 +40,7 @@ class AppValidators {
     }
 
     RegExp passwordRegex = RegExp(
-      r'^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$&*~]).{8,}$',
+      r'^(?=.*[a-z])(?=.*[0-9]).{8,}$',
     );
     if (!passwordRegex.hasMatch(value)) {
       return 'Please enter a valid password';

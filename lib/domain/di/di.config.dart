@@ -8,6 +8,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:ecommerce_app/domain/entities/product_response_entity.dart';
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
@@ -35,10 +36,7 @@ import '../../data/repository/wish_list_repository_impl.dart' as _i194;
 import '../../features/auth/login/cubit/login_view_model_cubit.dart' as _i726;
 import '../../features/auth/register/cubit/register_view_model_cubit.dart'
     as _i584;
-import '../../features/auth_presentation/login/cubit/login_view_model.dart'
-    as _i656;
-import '../../features/auth_presentation/regester/cubit/register_view_model_cubit.dart'
-    as _i422;
+
 import '../../features/cart/cubit/cart_view_model_cubit.dart' as _i261;
 import '../../features/main_layout/favourite_tab/cubit/wishlist_cubit.dart'
     as _i954;
@@ -93,8 +91,6 @@ extension GetItInjectableX on _i174.GetIt {
         _i526.RegisterUseCase(authRepository: gh<_i106.AuthRepository>()));
     gh.factory<_i726.LoginViewModelCubit>(() =>
         _i726.LoginViewModelCubit(loginUseCase: gh<_i119.LoginUseCase>()));
-    gh.factory<_i656.LoginViewModel>(
-        () => _i656.LoginViewModel(loginUseCase: gh<_i119.LoginUseCase>()));
     gh.factory<_i900.CartRepository>(() => _i942.CartRepositoryImpl(
         cartRemoteDataSource: gh<_i398.CartRemoteDataSource>()));
     gh.factory<_i574.DeleteItemInCartUseCase>(() =>
@@ -126,8 +122,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i136.GetWishListUseCase(gh<_i29.WishListRepository>()));
     gh.factory<_i584.RegisterViewModelCubit>(() => _i584.RegisterViewModelCubit(
         registerUseCase: gh<_i526.RegisterUseCase>()));
-    gh.factory<_i422.RegisterViewModelCubit>(() => _i422.RegisterViewModelCubit(
-        registerUseCase: gh<_i526.RegisterUseCase>()));
     gh.factory<_i796.HomeTabViewModelCubit>(() => _i796.HomeTabViewModelCubit(
           getAllCategoriesUseCase: gh<_i924.GetAllCategoriesUseCase>(),
           getAllBrandsUseCase: gh<_i59.GetAllBrandsUseCase>(),
@@ -135,7 +129,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i913.HomeTabViewModelCubit>(() => _i913.HomeTabViewModelCubit(
           getAllCategoriesUseCase: gh<_i924.GetAllCategoriesUseCase>(),
           getAllBrandsUseCase: gh<_i59.GetAllBrandsUseCase>(),
-        ));
+        product: ProductEntity()));
     gh.factory<_i261.CartViewModelCubit>(() => _i261.CartViewModelCubit(
           getCartUseCase: gh<_i220.GetCartUseCase>(),
           deleteItemUseCase: gh<_i574.DeleteItemInCartUseCase>(),
