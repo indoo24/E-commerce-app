@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 
 import '../resources/color_mananger.dart';
@@ -27,37 +28,40 @@ class CustomTextFiled extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      obscureText: obscureText,
-      validator: validator,
-      keyboardType: keyboardType,
-      controller: controller,
-      textAlign: TextAlign.left,
-      decoration: InputDecoration(
-        prefixIcon: prefixIcon,
-        suffixIcon: suffixIcon,
-        filled: true,
-        fillColor: ColorManager.white,
-        hintText: hintText,
-        border: OutlineInputBorder(
-          borderRadius: borderRadius,
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: borderRadius,
-          borderSide: const BorderSide(
-            color: ColorManager.white,
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: AppSize.s8),
+      child: TextFormField(
+        obscureText: obscureText,
+        validator: validator,
+        keyboardType: keyboardType,
+        controller: controller,
+        textAlign: TextAlign.left,
+        decoration: InputDecoration(
+          prefixIcon: prefixIcon,
+          suffixIcon: suffixIcon,
+          filled: true,
+          fillColor: ColorManager.white,
+          hintText: hintText,
+          border: OutlineInputBorder(
+            borderRadius: borderRadius,
           ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: borderRadius,
-          borderSide: const BorderSide(
-            color: ColorManager.white,
+          enabledBorder: OutlineInputBorder(
+            borderRadius: borderRadius,
+            borderSide: const BorderSide(
+              color: ColorManager.white,
+            ),
           ),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: borderRadius,
-          borderSide: const BorderSide(
-            color: ColorManager.red,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: borderRadius,
+            borderSide: const BorderSide(
+              color: ColorManager.white,
+            ),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: borderRadius,
+            borderSide: const BorderSide(
+              color: ColorManager.red,
+            ),
           ),
         ),
       ),

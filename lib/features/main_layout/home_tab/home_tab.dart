@@ -1,10 +1,11 @@
-import 'package:ecommerce_app/features/main_layout/home_tab/widgets/ads_widget.dart';
 import 'package:ecommerce_app/features/main_layout/home_tab/cubit/home_tab_view_model_cubit.dart';
+import 'package:ecommerce_app/features/main_layout/home_tab/widgets/ads_widget.dart';
 import 'package:ecommerce_app/features/main_layout/home_tab/widgets/custom_category_widget.dart';
 import 'package:ecommerce_app/features/main_layout/home_tab/widgets/custom_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shimmer/shimmer.dart';
 
 class HomeTab extends StatelessWidget {
   @override
@@ -43,27 +44,76 @@ class HomeTab extends StatelessWidget {
                                 .length,
                           ),
                         )
-                      : CircularProgressIndicator(),
+                      : Shimmer.fromColors(
+                          baseColor: Colors.white,
+                          highlightColor: Colors.grey,
+                          child: SizedBox(
+                            height: 270.h,
+                            child: GridView.builder(
+                              scrollDirection: Axis.horizontal,
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2),
+                              itemBuilder: (context, index) =>
+                                  CustomCategoryWidget(
+                                list: HomeTabViewModelCubit.get(context)
+                                    .categoryList[index],
+                                product:
+                                    HomeTabViewModelCubit.get(context).product,
+                              ),
+                              itemCount: HomeTabViewModelCubit.get(context)
+                                  .categoryList
+                                  .length,
+                            ),
+                          )),
                   CustomSection(
                     sectionName: 'Brands',
                     function: () {},
                   ),
-                  SizedBox(
-                    height: 270.h,
-                    child: GridView.builder(
-                      scrollDirection: Axis.horizontal,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2),
-                      itemBuilder: (context, index) => CustomCategoryWidget(
-                        list: HomeTabViewModelCubit.get(context)
-                            .brandsList[index],
-                        product: HomeTabViewModelCubit.get(context).product,
-                      ),
-                      itemCount:
-                          HomeTabViewModelCubit.get(context).brandsList.length,
-                    ),
-                  )
+                  state is HomeBrandSuccessState
+                      ? SizedBox(
+                          height: 270.h,
+                          child: GridView.builder(
+                            scrollDirection: Axis.horizontal,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2),
+                            itemBuilder: (context, index) =>
+                                CustomCategoryWidget(
+                              list: HomeTabViewModelCubit.get(context)
+                                  .brandsList[index],
+                              product:
+                                  HomeTabViewModelCubit.get(context).product,
+                            ),
+                            itemCount: HomeTabViewModelCubit.get(context)
+                                .brandsList
+                                .length,
+                          ),
+                        )
+                      : Shimmer.fromColors(
+                          baseColor: Colors.white,
+                          highlightColor: Colors.grey,
+                          child: SizedBox(
+                              height: 270.h,
+                              child: SizedBox(
+                                height: 270.h,
+                                child: GridView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 2),
+                                  itemBuilder: (context, index) =>
+                                      CustomCategoryWidget(
+                                    list: HomeTabViewModelCubit.get(context)
+                                        .brandsList[index],
+                                    product: HomeTabViewModelCubit.get(context)
+                                        .product,
+                                  ),
+                                  itemCount: HomeTabViewModelCubit.get(context)
+                                      .brandsList
+                                      .length,
+                                ),
+                              )))
                 ],
               ),
             ),

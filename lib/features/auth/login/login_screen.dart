@@ -66,11 +66,14 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(
                     height: AppSize.s16.h,
                   ),
-                  Text(
-                    'Email Address',
-                    style: getMediumStyle(
-                      fontSize: FontSizeManager.s20.sp,
-                      color: ColorManager.white,
+                  Container(
+                    padding: EdgeInsets.only(left: AppSize.s8),
+                    child: Text(
+                      'Email Address',
+                      style: getMediumStyle(
+                        fontSize: FontSizeManager.s20.sp,
+                        color: ColorManager.white,
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -85,16 +88,19 @@ class LoginScreen extends StatelessWidget {
                       color: ColorManager.primary,
                     ),
                     hintText: 'Enter your email address',
-                    borderRadius: BorderRadius.circular(AppSize.s24),
+                    borderRadius: BorderRadius.circular(AppSize.s16),
                   ),
                   SizedBox(
                     height: AppSize.s16.h,
                   ),
-                  Text(
-                    'Password',
-                    style: getMediumStyle(
-                      fontSize: FontSizeManager.s20.sp,
-                      color: ColorManager.white,
+                  Container(
+                    padding: EdgeInsets.only(left: AppSize.s8),
+                    child: Text(
+                      'Password',
+                      style: getMediumStyle(
+                        fontSize: FontSizeManager.s20.sp,
+                        color: ColorManager.white,
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -105,7 +111,7 @@ class LoginScreen extends StatelessWidget {
                     obscureText: true,
                     validator: AppValidators.validatePassword,
                     hintText: 'Enter your password',
-                    borderRadius: BorderRadius.circular(AppSize.s24),
+                    borderRadius: BorderRadius.circular(AppSize.s16),
                   ),
                   SizedBox(
                     height: AppSize.s16.h,
@@ -123,17 +129,20 @@ class LoginScreen extends StatelessWidget {
                   BlocBuilder<LoginViewModelCubit, LoginViewModelState>(
                     bloc: loginViewModelCubit,
                     builder: (context, state) {
-                      return SpinnerButton(
-                        width: AppSize.s16,
-                        actionText: AppConstants.loginSuccess,
-                        textName: AppConstants.login,
-                        buttonColor: ColorManager.white,
-                        textColor: ColorManager.primary,
-                        isLoading: state is LoginViewModelLoading,
-                        isSuccess: state is LoginViewModelSuccess,
-                        onPressed: () {
-                          loginViewModelCubit.onLoginButtonPressed();
-                        },
+                      return Container(
+                        margin: EdgeInsets.symmetric(horizontal: AppSize.s40),
+                        child: SpinnerButton(
+                          width: AppSize.s8,
+                          actionText: AppConstants.loginSuccess,
+                          textName: AppConstants.login,
+                          buttonColor: ColorManager.white,
+                          textColor: ColorManager.primary,
+                          isLoading: state is LoginViewModelLoading,
+                          isSuccess: state is LoginViewModelSuccess,
+                          onPressed: () {
+                            loginViewModelCubit.onLoginButtonPressed();
+                          },
+                        ),
                       );
                     },
                   ),

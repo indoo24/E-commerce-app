@@ -34,7 +34,7 @@ class RegisterScreen extends StatelessWidget {
       },
       child: Scaffold(
         body: Container(
-          padding: EdgeInsets.all(AppPadding.p8.h),
+          padding: EdgeInsets.all(AppPadding.p16.h),
           color: ColorManager.primary,
           width: double.infinity,
           height: double.infinity,
@@ -45,14 +45,14 @@ class RegisterScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   SizedBox(
-                    height: AppSize.s88.h,
+                    height: AppSize.s16.h,
                   ),
                   Image.asset(ImageAssets.logo),
                   SizedBox(
-                    height: AppSize.s32.h,
+                    height: AppSize.s24.h,
                   ),
                   Text(
-                    'Full Name',
+                    'User Name',
                     style: getMediumStyle(
                       fontSize: FontSizeManager.s20.sp,
                       color: ColorManager.white,
@@ -69,8 +69,8 @@ class RegisterScreen extends StatelessWidget {
                       color: ColorManager.primary,
                     ),
                     controller: viewModel.nameController,
-                    hintText: 'Enter your full name',
-                    borderRadius: BorderRadius.circular(AppSize.s24),
+                    hintText: 'Enter your name',
+                    borderRadius: BorderRadius.circular(AppSize.s16),
                   ),
                   SizedBox(
                     height: AppSize.s16.h,
@@ -94,7 +94,7 @@ class RegisterScreen extends StatelessWidget {
                       color: ColorManager.primary,
                     ),
                     hintText: 'Enter your phone number',
-                    borderRadius: BorderRadius.circular(AppSize.s24),
+                    borderRadius: BorderRadius.circular(AppSize.s16),
                   ),
                   SizedBox(
                     height: AppSize.s16.h,
@@ -118,11 +118,14 @@ class RegisterScreen extends StatelessWidget {
                       color: ColorManager.primary,
                     ),
                     hintText: 'Enter your email address',
-                    borderRadius: BorderRadius.circular(AppSize.s24),
+                    borderRadius: BorderRadius.circular(AppSize.s16),
                   ),
                   SizedBox(
                     height: AppSize.s16.h,
                   ),
+
+                  //todo: password
+
                   Text(
                     'Password',
                     style: getMediumStyle(
@@ -138,11 +141,13 @@ class RegisterScreen extends StatelessWidget {
                     validator: AppValidators.validatePassword,
                     controller: viewModel.passwordController,
                     hintText: 'Enter your password',
-                    borderRadius: BorderRadius.circular(AppSize.s24),
+                    borderRadius: BorderRadius.circular(AppSize.s16),
                   ),
                   SizedBox(
                     height: AppSize.s16.h,
                   ),
+
+                  //todo: re enter password
                   Text(
                     'Re-enter Password',
                     style: getMediumStyle(
@@ -158,32 +163,39 @@ class RegisterScreen extends StatelessWidget {
                     validator: AppValidators.validatePassword,
                     controller: viewModel.confirmPasswordController,
                     hintText: 'Re-enter your password',
-                    borderRadius: BorderRadius.circular(AppSize.s24),
+                    borderRadius: BorderRadius.circular(AppSize.s16),
                   ),
                   SizedBox(
-                    height: AppSize.s24.h,
+                    height: AppSize.s40.h,
                   ),
+
+                  // todo: button
+
                   BlocBuilder<RegisterViewModelCubit, RegisterViewModelState>(
                     bloc: viewModel,
                     builder: (context, state) {
-                      return SpinnerButton(
-                          width: AppSize.s16,
-                          actionText: AppConstants.registerSuccess,
-                          textName: AppConstants.signUp,
-                          buttonColor: ColorManager.white,
-                          textColor: ColorManager.primary,
-                          isLoading: state is RegisterViewModelLoading,
-                          isSuccess: state is RegisterViewModelSuccess,
-                          onPressed: () {
-                            viewModel.onRegisterButtonPressed();
-                            Timer(const Duration(seconds: 3), () {
-                              if (state is RegisterViewModelSuccess ||
-                                  viewModel.formKey.currentState!.validate()) {
-                                Navigator.pushReplacementNamed(
-                                    context, Routes.loginRoute);
-                              }
-                            });
-                          });
+                      return Container(
+                        margin: EdgeInsets.symmetric(horizontal: AppSize.s40),
+                        child: SpinnerButton(
+                            width: AppSize.s16,
+                            actionText: AppConstants.registerSuccess,
+                            textName: AppConstants.signUp,
+                            buttonColor: ColorManager.white,
+                            textColor: ColorManager.primary,
+                            isLoading: state is RegisterViewModelLoading,
+                            isSuccess: state is RegisterViewModelSuccess,
+                            onPressed: () {
+                              viewModel.onRegisterButtonPressed();
+                              Timer(const Duration(seconds: 3), () {
+                                if (state is RegisterViewModelSuccess ||
+                                    viewModel.formKey.currentState!
+                                        .validate()) {
+                                  Navigator.pushReplacementNamed(
+                                      context, Routes.loginRoute);
+                                }
+                              });
+                            }),
+                      );
                     },
                   ),
                 ],

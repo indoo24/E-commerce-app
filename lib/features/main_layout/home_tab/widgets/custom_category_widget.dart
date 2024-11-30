@@ -10,8 +10,6 @@ import '../../../../core/resources/color_mananger.dart';
 import '../../../../core/resources/font_manager.dart';
 import '../../../../core/resources/styles_manager.dart';
 import '../../../../domain/entities/product_response_entity.dart';
-import '../../products_tab/cubit/product_view_model.dart';
-import '../../products_tab/product_detials.dart';
 
 class CustomCategoryWidget extends StatelessWidget {
   CategoryOrBrandEntity list;
@@ -36,9 +34,6 @@ class CustomCategoryWidget extends StatelessWidget {
               width: 80.w,
               height: 80.h,
               fit: BoxFit.cover,
-              placeholder: (context, url) => const CircularProgressIndicator(
-                color: ColorManager.primary,
-              ),
               errorWidget: (context, url, error) => Icon(Icons.error),
             ),
           ),
