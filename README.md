@@ -1,16 +1,25 @@
-# e_commerce
+<div align='center'>
 
-A new Flutter project.
+<h1>E-commerce-app</h1>
+<p>An E-commerce app for Route company </p>
 
-## Getting Started
+<h4> <span> · </span> <a href="https://github.com/indoo24/E-commerce-app/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/indoo24/E-commerce-app/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/indoo24/E-commerce-app/issues"> Request Feature </a> </h4>
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+</div>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# :notebook_with_decorative_cover: Table of Contents
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [About the Project](#star2-about-the-project)
+
+
+## :star2: About the Project
+
+### :camera: Screenshots
+<div align="center"> <a href=""><img src="https://github.com/indoo24/E-commerce-app/blob/development/assets/Clean%20and%20Modern%20App%20Portfolio%20Mockup%20Presentation.png" alt='image' width='800'/></a> </div>
+<div align="center"> <a href=""><img src="https://github.com/indoo24/E-commerce-app/blob/development/assets/Clean%20and%20Modern%20App%20Portfolio%20Mockup%20Presentation(1).png" alt='image' width='800'/></a> </div>
+
+
+
+### :dart: Features
+- user-friendly design
